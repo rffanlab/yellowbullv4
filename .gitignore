@@ -1,0 +1,38 @@
+# ===== 虚拟环境（重点排除）=====
+venv/
+.venv/
+env/
+ENV/
+virtualenv/
+.python-version
+
+# ===== Python 产物 =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ===== 密钥与本地配置（真实 .env 不入库，保留 .env.example）=====
+.env
+.env.local
+.env.*.local
+
+# ===== 运行期产物（本地数据/会话/审计/日志）=====
+data/
+
+# ===== 编辑器 / IDE =====
+.idea/
+.vscode/
+*.swp
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
