@@ -1,0 +1,41 @@
+# 老黄牛配置 — 行为配置（密钥放 .env，不要放这里！）
+# 字段说明见 docs/phase1/01-工程骨架与配置.md §5
+
+llm:
+  default_model: gpt-4o
+  fallback_chain: [gpt-4o, claude-sonnet-4, gemini-2.5-pro]
+  per_model:
+    gpt-4o:
+      max_tokens: 8000
+      context_window: 128000
+    claude-sonnet-4:
+      max_tokens: 8000
+      context_window: 200000
+    gemini-2.5-pro:
+      max_tokens: 8000
+      context_window: 128000
+  timeouts:
+    connect: 10
+    read: 120
+  max_retries: 2
+
+safety:
+  workdir: .
+  allow_paths: ["."]
+  require_confirm_write: true
+  require_confirm_execute: true
+
+engine:
+  max_steps: 25
+  max_runtime_seconds: 600
+  tool_output_cap_chars: 20000
+  loop_threshold: 3
+  keep_recent_turns: 6
+  run_python_timeout: 60
+  web_timeout_seconds: 20
+  web_max_bytes: 1000000
+
+logging:
+  level: INFO
+  dir: data/logs
+  retention_days: 14
